@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery Enhancements with Lorem Picsum</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            
+            $('#btn1').click(function() {
+                const randomColor = () => {
+                    let red = Math.floor(Math.random() * 256);
+                    let green = Math.floor(Math.random() * 256);
+                    let blue = Math.floor(Math.random() * 256);
+                    return `rgb(${red}, ${green}, ${blue})`;
+                };
+                $(this).css('background-color', randomColor());
+            });
+
+           
+            $('#btn2').click(function() {
+                
+                const randomId = Math.floor(Math.random() * 1000); 
+                const imageUrl = `https://picsum.photos/id/${randomId}/600/400`; 
+                $('.image-display').attr('src', imageUrl);
+            });
+        });
+    </script>
+   <style>
+   
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover; 
+        background-position: center; 
+    }
+    
+    button {
+        font-size: 24px; 
+        padding: 15px 30px;
+        cursor: pointer; 
+        background-color: #fff; 
+        border: 2px solid #000; 
+        border-radius: 10px; 
+
+    }
+</style>
+</head>
+<body>
+    <form action="">
+        <div class="container">
+            <div>
+                <img src="https://picsum.photos/600/400?random=1" class="image-display" alt="Random Image">
+            </div>
+            
+            <button type="button" id="btn1">Change Color</button>
+            <button type="button" id="btn2">Change Image</button>
+            
+        </div>
+    </form>
+</body>
+</html>
